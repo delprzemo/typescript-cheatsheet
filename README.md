@@ -543,3 +543,26 @@ let myValue : MyUnionTypesBase<[number, string, boolean]>;
 ```
 
 My value can be type number | string | boolean (number or string or boolean)
+
+Symbols
+=================
+Instead of using normal string keys in object it can be used predefined and assigned to variable Symbol
+example:
+
+```ts
+const getSthSymbol = Symbol("getSth");
+
+class SampleClass {
+    [getSthSymbol](){
+	return "something";
+    }
+}
+```
+
+**Symbols are unique**
+```ts
+let sym2 = Symbol("key");
+let sym3 = Symbol("key");
+```
+
+sym2 is not equal to sym3 (sym2 != sym3)
