@@ -279,6 +279,7 @@ function doSth<T,Y> (value: T, category: Y) {}
 
 ## Extending generics
 Generic classes can be extended - it can be implemention of some inferface/object
+
 Example:
 
 ```ts
@@ -297,5 +298,53 @@ interface IExtendedString extends String{
 mySubStr(arg: IExtendedString);
 ```
 
+Enums
+=================
+Enums allow us to define a set of named constants and then used them like a dictionary.
 
+Sample enum:
+```ts
+enum Direction {
+	Up ,
+	Down = 1,  // custom values can be assigned to enums
+	Left,
+	Right,
+}
+```
 
+usage:
+
+```ts
+function move(direction: Direction): void {
+	if(direction == Direction.Up) {
+		// some code here
+	}
+}
+```
+
+## Constant and computed enum members
+Some enum members have pre-set value and some members are computed during complation
+
+```ts
+enum FileAccess {
+    // constant members
+    None,
+    Read    = 1 << 1,
+    Write   = 1 << 2,
+    ReadWrite  = Read | Write,
+    // computed member
+    G = "123".length,
+    F = Read + Write
+}
+```
+
+## Reverse enum member
+
+```ts
+enum MyEnum {
+	A, 
+	B
+}
+const member = MyEnum[0];
+```
+member variable is equal to "A"
