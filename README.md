@@ -1,5 +1,8 @@
 # TypeScript Cheatsheet
-Set of basic functionalities from TypeScript in one place. Cheatsheet was created by https://foreach.pl trainers for their students.
+Set of basic functionalities from TypeScript in one place. 
+
+Cheatsheet was created by https://foreach.pl trainers for their students.
+
 Please note that some functionalities are part of ES201x but they are frequently used in TypeScript as well.
 
 Types, variables and functions
@@ -659,3 +662,23 @@ it will change return value of decorated function so it will return "Hello " + v
 ```
 
 greet() will return "Hello, here is hacker"
+
+Generators
+=================
+Loops can be executed "step by step"
+
+Example:
+```ts
+function* idMaker(){
+	let index = 0;
+	while(index < 3)
+		yield index++;
+}
+
+let gen = idMaker();
+
+let value;
+value = gen.next().value // result 1
+value = gen.next().value // result 2
+value = gen.next().value // result 3
+```
