@@ -23,7 +23,7 @@ Command line inferface for Angular - set of commands that will help us during de
 | Object | let x:Object = {id: 2}; | Represents any object
 | Function | let myFn:Function = function() {...} | Represents any function
 
-## Destructing and spread**
+## Destructing and spread
 This is ES functionality 
 
 **Spread**
@@ -63,6 +63,37 @@ let [first, ...rest] = input;
 }
 ```
 first is equal to 1
+
 rest is equal to [2, 3]
  
+## Array functions
+This is ES functionality 
+
+```ts
+var numArray: Array<number> = [1, 2, 3];
+var numArray2: Array<number> = [4,5];
+var stringArray: Array<number> = ["a", "b", "c"];
+
+var objectArray: Array<User> = [
+  {name: "Iva", age: 31},
+  {name: "John", age: 39},
+  {name: "Monica", age: 22}
+]; 
+```
+
+| Function  | Result | Result | 
+| ------------- | ------------- | ------------- | 
+| concat | numArray.concat(numArray2) -> [1,2,3,4,5] | Push values from one array to another |
+| every | objectArray.every(x=> x.age > 20) -> true | Check if all items are passing condition |
+| some | objectArray.some(x=> x.age > 30) -> true | Check if any item is passing condition |
+| filter | objectArray.filter(x=> x.age >= 35)) -> [{name: "Iva", age: 39}] | Get only items which are passing condition |
+| foEach | numArray.forEach(x=> console.log(x)) | Perform some logic for each array item |
+| join | stringArray.join(",") -> "a,b,c" | Merge text items into one value (add ',' between) |
+| indexOf | stringArray.indexOf("b") -> 1 | Return index(position) array item |
+| map | stringArray.map(x => x + "1") -> ["a1", "b1", "c1"] | Do something with each array item |
+| push | stringArray.push("d") -> ["a", "b", "c", "d"] | Add element to the end of the array  |
+| unshift | stringArray.unshift("d") -> ["d", "a", "b", "c"] | Add element to the begin of the array  |
+| reduce | numArray.reduce((x, y) => x + y) -> 16 | Merge array into one value performing some logic on a way |
+| shift | numArray.shift() -> [2, 3] | Removes the first element from an array and returns it.|
+| sort | ["b", "c", "a"].sort((x,y) => x > y) -> ["a", "b", "c"] | Sort array by some logic |
 
