@@ -625,7 +625,7 @@ declare module "path" {
 and then we can import it
 
 ```ts
-import * as URL from „path";
+import * as URL from „path"
 ```
 
 ## replace global function
@@ -634,3 +634,28 @@ Some functions in JS are global and we may have not type for them. We can use 'd
 ```ts
 declare const System: IOurSystemObject;
 ```
+
+Decorators
+=================
+"Decorators provide a way to add both annotations and a meta-programming syntax for class declarations and members."
+
+```ts
+ function customMethodDecorator(value: string) {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {  
+	descriptor.value = () => {
+	    return "Hello, " + value;
+	}
+    };
+}
+```
+
+it will change return value of decorated function so it will return "Hello " + value from decorator
+
+```ts
+@customMethodDecorator("here is hacker")
+    greet() {
+	return "Hello, " + this.greeting;
+    }
+```
+
+greet() will return "Hello, here is hacker"
