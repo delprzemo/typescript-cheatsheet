@@ -2,7 +2,12 @@
 Set of basic functionalities from TypeScript in one place. Cheatsheet was created by https://foreach.pl trainers for their students.
 Please note that some functionalities are part of ES201x but they are frequently used in TypeScript as well.
 
-**1. Basic variable types**
+Types, variables and functions
+=================
+
+Command line inferface for Angular - set of commands that will help us during development.
+
+## Basic variable types
 
 | Type  | Example | Notes |
 | ------------- | ------------- | ------------- |
@@ -18,5 +23,46 @@ Please note that some functionalities are part of ES201x but they are frequently
 | Object | let x:Object = {id: 2}; | Represents any object
 | Function | let myFn:Function = function() {...} | Represents any function
 
+## Destructing and spread**
+This is ES functionality 
 
+**Spread**
+
+Spread can be used to merge two object or arrays:
+
+```ts
+let first = [1, 2];
+let second = [3, 4];
+let both = [0, ...first, ...second, 5];
+}
+```
+
+both variable is equal to [1, 2, 3, 4].
+
+Same for objects:
+```ts
+let first = { id: 2 };
+let second = { name: "test", ...first };
+}
+```
+Second is equal to {name: "test", id: 2 }
+
+**Destructuring**
+Reversed spread - we can split one object into multiple
+```ts
+let input = [1, 2];
+let [first, second] = input;
+}
+```
+first is equal to 1 and second is equal to 2
+
+We can also use "..." operator
+```ts
+let input = [1, 2, 3];
+let [first, ...rest] = input;
+}
+```
+first is equal to 1
+rest is equal to [2, 3]
+ 
 
