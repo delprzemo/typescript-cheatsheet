@@ -110,3 +110,82 @@ This is ES functionality
 
 Classes
 =================
+
+Sample class:
+```ts
+class NewGreeter {
+   private greeting: string; 
+   constructor(message: string) { 
+    this.greeting = message;
+   }
+
+   greet() {
+    return "Hello, " + this.greeting;
+   }
+}
+
+var greeter = new Greeter('friend');
+
+```
+Notes:
+1. Only one constructor inside class
+2. constructor(**this** message: string) will automatically create message property and assign to it value from message property
+3. Instead of private - public or protected can be used
+
+## Inheritance
+```ts
+class MyObject {
+   protected value = 0;
+   static staticValue = 0;
+
+   getValue() {
+    return this.value;
+   }
+}
+class ChildObject extends MyObject {
+   getParentValue() {
+    return this.value;
+   }
+ }
+
+```
+
+## Accessors
+
+TypeScript supports getters/setters as a way of intercepting accesses to a member of an object. You can add logic while the property is changing value or it is read by something
+
+
+```ts
+private _value = 0;
+get value(): number {
+	return this.value;
+}
+set value(newValue: number): void {
+	this.value = newValue;
+}
+```
+
+## Abstract class
+Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members. 
+
+```ts
+abstract class MyAbstractObject {
+    constructor(public value: string) { }
+    abstract getValue(): string; 
+}
+```
+
+getValue function must be implemented in derived classes. Derived class must also call super() in constructor, example:
+
+```ts
+abstract class MyAbstractObject extends Department {
+    constructor() {
+       super("test value");
+    }
+    getValue(): string {
+       // some logic here
+    }
+}
+```
+
+
