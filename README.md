@@ -485,3 +485,36 @@ interface IMyObjectWithSize extends IMyObject{
 	size?: number
 }
 ```
+
+## Conditional types
+Generic types can be different depending on some condition
+```ts
+type MyStringType<T> = T extends string ? string : Text;
+```
+if T extends string (contains all string properties and functions) then it will be string type. Otherwise it will be our custom Text type. 
+
+other example:
+
+```ts
+type NonNullable<T> = T extends null | undefined ? never : T;
+```
+NonNullable type will check if value isn't equal to null or undefined (it should never been equal to null or undefined)
+
+## Index types
+***keyof*** keyword is indicating all keys for specifed object, for example:
+```ts
+type testType = keyof {id: "test", age: 2} ;
+```
+only "id" or "age" values can be assigned to variable with 'testType' type
+
+Other example:
+```ts
+interface IMyInterface {
+    id: number;
+    name: string;
+}
+
+type Keys = {id: 1, name: "T" }[keyof IMyInterface];
+```
+
+using [keyof ...] instead of "keyof" before object means that we are revesing keyof behavior and now only 1 and "T" can be assigned to value with Keys type (values, not property keys)
