@@ -81,7 +81,7 @@ var objectArray: Array<User> = [
 ]; 
 ```
 
-| Function  | Result | Result | 
+| Function  | Result | Notes | 
 | ------------- | ------------- | ------------- | 
 | concat | numArray.concat(numArray2) -> [1,2,3,4,5] | Push values from one array to another |
 | every | objectArray.every(x=> x.age > 20) -> true | Check if all items are passing condition |
@@ -97,3 +97,16 @@ var objectArray: Array<User> = [
 | shift | numArray.shift() -> [2, 3] | Removes the first element from an array and returns it.|
 | sort | ["b", "c", "a"].sort((x,y) => x > y) -> ["a", "b", "c"] | Sort array by some logic |
 
+
+## Functions
+This is ES functionality 
+
+| Type  | Example |
+| ------------- | ------------- |
+| Named function | function add(x: number, y:number): number {} | 
+| Anonymous function | let myAdd = function(x: number, y: number = 1): number | 
+| Arrow function | myArrowAdd = (x: number, y:number): number | 
+
+
+Classes
+=================
