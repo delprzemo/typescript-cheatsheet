@@ -385,7 +385,7 @@ Value can be string OR boolean.
 
 It is correct:
 ```ts
-value = "Test;
+value = "Test";
 ```
 ```ts
 value = true
@@ -419,3 +419,69 @@ function doSth<T>(value: T) {
 }
 ```
 thanks to 'x is number' typescript know in which scope we have access to toPrecision 
+
+## Type aliases
+Own custom types can be declared, for example
+
+```ts
+type MyType<T> = { parameter: T};
+```
+
+Usage:
+
+```ts
+let myVariable: MyType<string> = {parameter: "Test"}
+let myVariable: MyType<string> = {parameter: 2}
+```
+
+## Difference between Types na Interfaces
+
+**Types**
+
+Create a tree structure for an object. You can't do the same with interface because of lack of intersection (&)
+
+```ts
+type Tree<T> = T & { parent: Tree<T> };
+```
+
+type to restrict a variable to assign only a few values. Interfaces don't have union (|)
+
+```ts
+type Choise = "A" | "B" | "C"
+```
+
+thanks to types, you can declare NonNullable type thanks to a conditional mechanism.
+
+```ts
+type NonNullable<T> = T extends null | undefined ? never : T;
+```
+
+**Interfaces**
+You can use interface for OOP and use 'implements' to define object/class skeleton
+```ts
+interface IUser {
+    user: string;
+    password: string;
+    login: (user: string, password: string) => boolean;
+}
+
+class User implements IUser {
+    user = "user1"
+    password = "password1"
+
+    login(user: string, password: string) {
+        return (user == user && password == password)
+    }
+}
+```
+You can extend interfaces with other interfaces
+
+```ts
+interface IMyObject {
+	label: string,
+}
+
+interface IMyObjectWithSize extends IMyObject{
+	size?: number
+}
+```
