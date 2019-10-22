@@ -507,7 +507,7 @@ type testType = keyof {id: "test", age: 2} ;
 ```
 only "id" or "age" values can be assigned to variable with 'testType' type
 
-Other example:
+Example 2:
 ```ts
 interface IMyInterface {
     id: number;
@@ -518,3 +518,17 @@ type Keys = {id: 1, name: "T" }[keyof IMyInterface];
 ```
 
 using [keyof ...] instead of "keyof" before object means that we are revesing keyof behavior and now only 1 and "T" can be assigned to value with Keys type (values, not property keys)
+
+Example 3:
+```ts
+type Key<T> = { [K in keyof T]: K }[keyof T];
+```
+This will point to all keys in the T object (just like keyof T).
+But this construction can be used to for example check type of keys:
+
+```ts
+type FunctionPropertyNames<T> = { [K in keyof T]: T[K] extends Function ? K : never }[keyof T];
+```
+This type will require values equal to keys of T object, but only these ones which are functions
+
+
