@@ -188,4 +188,64 @@ abstract class MyAbstractObject extends Department {
 }
 ```
 
+Interfaces
+=================
+
+A class or struct that implements the interface must implement the members of the interface that are specified in the interface definition. The interface is the only skeleton for our classes implementing them
+
+**Interface for object**
+```ts
+interface IObject {
+     label: string 
+}
+
+function MyFunction(obj: IObject) 
+```
+
+obj parameter has to contain label property
+
+**Interface for class**
+```ts
+interface ComesFromString {
+    name: string;
+}
+
+class MadeFromString implements ComesFromString {
+    constructor (public name: string) {
+
+    }
+}
+```
+
+class MadeFromString has to contain 'name' property
+
+obj parameter has to contain label property
+
+## Index signature
+Index signature can be used to allow object/class contain multiple different properties with same type, for example wew have such a interface:
+
+```ts
+interface IMyObject {
+	[propName: string]: string
+}
+```
+and MyObject that is implementing it. 
+
+Sample correct implementation of IMyObject:
+```ts
+let MyObject: IMyObject  = {
+	fistName: 'test',
+	lastName: 'test'
+}
+```
+Sample incorrect implementation of IMyObject:
+
+```ts
+let MyObject: IMyObject  = {
+	fistName: 'test',
+	age: 2
+}
+```
+Because age is number and our index signature indicate that our properties should have string type
+
 
