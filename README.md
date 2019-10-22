@@ -249,3 +249,53 @@ let MyObject: IMyObject  = {
 Because age is number and our index signature indicate that our properties should have string type
 
 
+Generics
+=================
+Sometimes same function/class/object can be used with different types and we don't want to declare it to one specific type. We can use generic type then
+
+Example:
+```ts
+function changeUndefinedToNull<T>(value: T): T {
+	return (typeof value !== "undefined") ? value : null;
+}
+```
+
+and now it can be used with diffrent types used for value parameter:
+
+```ts
+const result = changeUndefinedToNull<string>("Test");
+```
+```ts
+const result = changeUndefinedToNull<number>(21);
+```
+```ts
+const result = changeUndefinedToNull<Object>({name: "Test"});
+```
+
+More than just one generic type can be used:
+```ts
+function doSth<T,Y> (value: T, category: Y) {}
+```
+
+## Extending generics
+Generic classes can be extended - it can be implemention of some inferface/object
+Example:
+
+```ts
+function mySubStr<T extends string>(arg: T): string {
+	return arg.substr(1, 10);
+}
+```
+
+arg has to object that is equal or extending string, for example string or:
+
+```ts
+interface IExtendedString extends String{
+	newStringFunction(): number
+}
+
+mySubStr(arg: IExtendedString);
+```
+
+
+
