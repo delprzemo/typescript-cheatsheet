@@ -532,3 +532,14 @@ type FunctionPropertyNames<T> = { [K in keyof T]: T[K] extends Function ? K : ne
 This type will require values equal to keys of T object, but only these ones which are functions
 
 
+## infer
+"Within the extends clause of a conditional type, it is now possible to have infer declarations that introduce a type variable to be inferred. Such inferred type variables may be referenced in the true branch of the conditional type. It is possible to have multiple infer locations for the same type variable."
+
+Example:
+
+```ts
+type MyUnionTypesBase<T> = T extends Array<infer U> ? U : never;
+let myValue : MyUnionTypesBase<[number, string, boolean]>;
+```
+
+My value can be type number | string | boolean (number or string or boolean)
