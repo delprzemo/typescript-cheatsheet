@@ -566,3 +566,71 @@ let sym3 = Symbol("key");
 ```
 
 sym2 is not equal to sym3 (sym2 != sym3)
+
+
+Modules
+=================
+Import and export mechanism (between files and objects)
+
+Example:
+
+data.ts file
+```ts
+export class DataClass {
+    ...
+}
+export interface IOperations {
+...
+}
+```
+Import
+other file 
+```ts
+import {DataClass as ImportedDataClass} from './data.ts'
+```
+
+Import all:
+```ts
+import * from './data.ts'
+```
+
+## namespaces
+Encapsulated scope of classes, objects, functions, interfaces and others. 
+
+Example:
+```ts
+namespace UserArea {
+	export interface IUser {}
+	export class User {}
+		class Person {
+	}
+}
+let user = UserArea.User;
+```
+
+## ambient modules
+Encapsulated scope of classes, objects, functions, interfaces, and others - that is available to export/import.
+"We call declarations that don’t define an implementation “ambient”. Typically, these are defined in .d.ts files. "
+
+Example
+```ts
+declare module "path" {
+	export function normalize(p: string): string;
+	export function join(...paths: any[]): string;
+	export var sep: string;
+}
+
+```
+
+and then we can import it
+
+```ts
+import * as URL from „path";
+```
+
+## replace global function
+Some functions in JS are global and we may have not type for them. We can use 'declare' keyword here
+
+```ts
+declare const System: IOurSystemObject;
+```
