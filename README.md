@@ -348,3 +348,50 @@ enum MyEnum {
 const member = MyEnum[0];
 ```
 member variable is equal to "A"
+
+
+Advanced types
+=================
+
+## Types intersection & union
+
+**Intersection**
+```ts
+interface Type1 {name: string;}
+interface Type2 {age: number}
+
+let myObject: Type1 & Type2
+```
+Type1 & Type2 means that there will be object containing properties both from  Type1 & Type2
+ 
+Sample correct myObject value:
+```ts
+myObject = {name: "test", age: 33}
+```
+
+Sample incorrect myObject values:
+```ts
+myObject = {name: "test"}
+```
+```ts
+myObject = {name: "test", age: "test"}
+```
+
+**Union**
+```ts
+const value: string | boolean 
+```
+Value can be string OR boolean.
+
+It is correct:
+```ts
+value = "Test;
+```
+```ts
+value = true
+```
+
+and that is incorrect:
+```ts
+value = 2
+```
