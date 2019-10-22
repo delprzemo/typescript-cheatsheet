@@ -395,3 +395,27 @@ and that is incorrect:
 ```ts
 value = 2
 ```
+
+## Type guards
+Type guard can be used to tell TypeScript what type is any value in specific block of code.
+
+Sample Type Guard implementation:
+
+```ts
+function isNumber(x: any): x is number {
+    return (<number>x).toPrecision !== undefined;
+}
+```
+
+Sample Type Guard usage
+
+```ts
+function doSth<T>(value: T) {
+    if (isNumber(value)) {
+	return value.toPrecision; // it's ok as TypeScript know that here value is number
+    } else {
+	return value.toPrecision; // Error - we don't have access to toPrecision here
+    } 
+}
+```
+thanks to 'x is number' typescript know in which scope we have access to toPrecision 
