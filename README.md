@@ -801,7 +801,7 @@ A: File specifies the root files and the compiler options required to compile th
 
 A: Computed value will be assigned during compilation. See [Enum computed value](https://github.com/delprzemo/typescript-cheatsheet#constant-and-computed-enum-members "constant-and-computed-enum-members") 
 
-**Q: What files with extension '.d.ts' stand for?**
+**Q: What are files with the d.ts extension for?**
 
 A: They are usually module template file where we can keep typings for JS code. 
 
@@ -837,6 +837,7 @@ let box: MyInterface
 A: ```{name: string, age: number}; ```
 
 **Q: What is 'unknown' type in TypeScript?**
+
 A: Unknown is used to describe the least-capable type in TypeScript.  It doesn’t allow oprations typical for particular type
 
 ```ts
