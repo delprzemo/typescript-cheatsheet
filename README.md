@@ -10,6 +10,20 @@ Please note that some functionalities are part of ES201x but they are frequently
 <!--ts-->
    * [Types, variables and functions](#Types,-variables-and-functions)
       * [Basic variable types](#Basic-variable-types)
+      * [Destructing and spread](#Destructing-and-spread)
+      * [Array functions](#Array-functions)
+      * [Functions](#Functions)
+   * [Classes](#Classes)
+      * [Inheritance](#Inheritance)
+      * [Accessors](#Accessors)
+      * [Abstract class](#Abstract-class)
+   * [Interfaces](#Interfaces)
+      * [Index signature](#Index-signature)
+   * [Generics](#Generics)
+      * [Extending generics](#Extending-generics)
+   * [Enums](#Enums)
+      * [Constant and computed enum members](#Constant-and-computed-enum-members)
+      * [Reverse enum member](#Reverse-enum-member)
 <!--te-->
 
 Types, variables and functions
