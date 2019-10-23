@@ -85,6 +85,7 @@ let second = { name: "test", ...first };
 Second is equal to {name: "test", id: 2 }
 
 **Destructuring**
+
 Reversed spread - we can split one object into multiple
 ```ts
 let input = [1, 2];
@@ -716,3 +717,70 @@ value = gen.next().value // result 1
 value = gen.next().value // result 2
 value = gen.next().value // result 3
 ```
+
+
+
+Types, variables and functions
+=================
+
+**What is Tuple type?**
+
+Array contains  ains items with various types. See [types](https://github.com/delprzemo/typescript-cheatsheet#Basic-variable-types "Basic-variable-types") 
+
+**When never type can be useful?**
+
+Never is information that this particular part shouldn't be reachable. For example in this code
+
+```ts
+function do(): never {
+    while (true) {}
+}
+```
+
+we have an infinite loop and we don't want to iterate infinite loop. Simply as that.
+
+But a real question is how can it be useful for us? It might be helpful for instance while creating more advanced types to point what they are not
+
+For example, let's declare our own NonNullable type:
+
+```ts
+type NonNullable<T> = T extends null | undefined ? never : T;
+```
+Here we are checking if T is null or undefined. If it is then we are pointing that it should never happen. Then while using this type:
+
+```ts
+let value: NonNullable<string>;
+value = "Test";
+value = null; // error
+```
+
+**What is a difference between named, anonymous and arrow functions?**
+
+See [basic function types](https://github.com/delprzemo/typescript-cheatsheet#Functions "Functions") 
+
+**How many constructors can be implemented for class**
+
+Only one - there is no overloading for TypeScript class constructor
+
+**What is a difference between "extends" and "implements"**
+
+Classes can extend other classes or objects, but when it comes to interfaces then they should be implemented
+
+For MyObject
+```ts
+class ChildObject extends MyObject 
+```
+
+For IMyObject
+```ts
+class ChildObject extends IMyObject 
+```
+
+**What is a difference between types and interfaces?**
+
+See [Difference between types and nterfaces](https://github.com/delprzemo/typescript-cheatsheet#difference-between-types-na-interfaces "difference-between-types-na-interfaces") 
+
+
+
+
+
