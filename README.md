@@ -723,13 +723,13 @@ value = gen.next().value // result 3
 Types, variables and functions
 =================
 
-**What is Tuple type?**
+**Q: What is Tuple type?**
 
-Array contains  ains items with various types. See [types](https://github.com/delprzemo/typescript-cheatsheet#Basic-variable-types "Basic-variable-types") 
+A: Array contains  ains items with various types. See [types](https://github.com/delprzemo/typescript-cheatsheet#Basic-variable-types "Basic-variable-types") 
 
-**When never type can be useful?**
+**Q: When never type can be useful?**
 
-Never is information that this particular part shouldn't be reachable. For example in this code
+A: Never is information that this particular part shouldn't be reachable. For example in this code
 
 ```ts
 function do(): never {
@@ -754,17 +754,17 @@ value = "Test";
 value = null; // error
 ```
 
-**What is a difference between named, anonymous and arrow functions?**
+**Q: What is a difference between named, anonymous and arrow functions?**
 
-See [basic function types](https://github.com/delprzemo/typescript-cheatsheet#Functions "Functions") 
+A: See [basic function types](https://github.com/delprzemo/typescript-cheatsheet#Functions "Functions") 
 
-**How many constructors can be implemented for class**
+**Q: How many constructors can be implemented for class**
 
-Only one - there is no overloading for TypeScript class constructor
+A: Only one - there is no overloading for TypeScript class constructor
 
-**What is a difference between "extends" and "implements"**
+**Q: What is a difference between "extends" and "implements"**
 
-Classes can extend other classes or objects, but when it comes to interfaces then they should be implemented
+A: Classes can extend other classes or objects, but when it comes to interfaces then they should be implemented
 
 For MyObject
 ```ts
@@ -776,11 +776,66 @@ For IMyObject
 class ChildObject extends IMyObject 
 ```
 
-**What is a difference between types and interfaces?**
+**Q: What is a difference between types and interfaces?**
 
-See [Difference between types and nterfaces](https://github.com/delprzemo/typescript-cheatsheet#difference-between-types-na-interfaces "difference-between-types-na-interfaces") 
+A: See [Difference between types and nterfaces](https://github.com/delprzemo/typescript-cheatsheet#difference-between-types-na-interfaces "difference-between-types-na-interfaces") 
+
+**Q: What is keyof?**
+
+A: ***keyof*** keyword is indicating all keys for specifed object, for example:
+
+```ts
+type testType = keyof {id: "test", age: 2} ;
+```
+testType = "id" | "age"
+
+See [Index types](https://github.com/delprzemo/typescript-cheatsheet#index-types "index-types") 
 
 
+**Q: What is computed enum value?**
+
+A: Computed value will be assigned during compilation. See [Enum computed value](https://github.com/delprzemo/typescript-cheatsheet#constant-and-computed-enum-members "constant-and-computed-enum-members") 
+
+**Q: List few predefined conditional types in TypeScript**
+
+A: 
+
+Exclude<T, U> – Exclude from T those types that are assignable to U.
+Extract<T, U> – Extract from T those types that are assignable to U.
+NonNullable<T> – Exclude null and undefined from T.
+ReturnType<T> – Obtain the return type of a function type.
+InstanceType<T> – Obtain the instance type of a constructor function type.
+
+See [TypeScript 2.8](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html)
+
+**Q: What will be type box here?**
+```ts
+interface MyInterface {
+name: string;
+}
+
+interface MyInterface {
+   age: number;
+}
+
+let box: MyInterface 
+```
+
+A: ```{name: ‚Test’, age: 36}; ```
+
+**Q: What is 'unknown' type in TypeScript?**
+A: Unknown is used to describe the least-capable type in TypeScript.  It doesn’t allow oprations typical for particular type
+
+``ts
+function f10(x: unknown) {
+	x == 5;
+	x = "5";
+	x = x + 1; // not allowed
+	x = null; 
+	x > 0  // not allowed
+	x.Test() // not allowed
+}
+``
 
 
 
