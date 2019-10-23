@@ -25,7 +25,7 @@ Please note that some functionalities are part of ES201x but they are frequently
       * [Constant and computed enum members](#Constant-and-computed-enum-members)
       * [Reverse enum member](#Reverse-enum-member)
    * [Advanced types](#Advanced-types)
-      * [Types intersection & union](#Types-intersection-&-union)
+      * [Types intersection and union](#Types-intersection-and-union)
       * [Type guards](#Type-guards)
       * [Type aliases](#Type-aliases)
       * [Conditional types](#Conditional-types)
@@ -390,7 +390,7 @@ member variable is equal to "A"
 Advanced types
 =================
 
-## Types intersection & union
+## Types intersection and union
 
 **Intersection**
 ```ts
