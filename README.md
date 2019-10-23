@@ -30,11 +30,11 @@ Please note that some functionalities are part of ES201x but they are frequently
       * [Type aliases](#Type-aliases)
       * [Conditional types](#Conditional-types)
       * [Index types](#Index-types)
-      * [infer](#infer)
+      * [Infer](#Infer)
    * [Symbols](#Symbols)
    * [Modules](#Modules)
-      * [namespaces](#namespaces)
-      * [ambient modules](#ambien-modules)
+      * [Namespaces](#Namespaces)
+      * [Ambient modules](#Ambient-modules)
    * [Decorators](#Decorators)
    * [Generators](#Generators)
 <!--te-->
@@ -569,7 +569,7 @@ type FunctionPropertyNames<T> = { [K in keyof T]: T[K] extends Function ? K : ne
 This type will require values equal to keys of T object, but only these ones which are functions
 
 
-## infer
+## Infer
 "Within the extends clause of a conditional type, it is now possible to have infer declarations that introduce a type variable to be inferred. Such inferred type variables may be referenced in the true branch of the conditional type. It is possible to have multiple infer locations for the same type variable."
 
 Example:
@@ -631,7 +631,7 @@ Import all:
 import * from './data.ts'
 ```
 
-## namespaces
+## Namespaces
 Encapsulated scope of classes, objects, functions, interfaces and others. 
 
 Example:
@@ -645,7 +645,7 @@ namespace UserArea {
 let user = UserArea.User;
 ```
 
-## ambient modules
+## Ambient modules
 Encapsulated scope of classes, objects, functions, interfaces, and others - that is available to export/import.
 "We call declarations that don’t define an implementation “ambient”. Typically, these are defined in .d.ts files. "
 
