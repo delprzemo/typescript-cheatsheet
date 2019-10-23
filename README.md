@@ -24,6 +24,19 @@ Please note that some functionalities are part of ES201x but they are frequently
    * [Enums](#Enums)
       * [Constant and computed enum members](#Constant-and-computed-enum-members)
       * [Reverse enum member](#Reverse-enum-member)
+   * [Advanced types](#Advanced-types)
+      * [Types intersection & union](#Types-intersection-&-union)
+      * [Type guards](#Type-guards)
+      * [Type aliases](#Type-aliases)
+      * [Conditional types](#Conditional-types)
+      * [Index types](#Index-types)
+      * [infer](#infer)
+   * [Symbols](#Symbols)
+   * [Modules](#Modules)
+      * [namespaces](#namespaces)
+      * [ambient modules](#ambien-modules)
+   * [Decorators](#Decorators)
+   * [Generators](#Generators)
 <!--te-->
 
 Types, variables and functions
