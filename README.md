@@ -726,7 +726,7 @@ Interview questions
 
 **Q: What is Tuple type?**
 
-A: Array contains  ains items with various types. See [types](https://github.com/delprzemo/typescript-cheatsheet#Basic-variable-types "Basic-variable-types") 
+A: Array contains items with various types. See [types](https://github.com/delprzemo/typescript-cheatsheet#Basic-variable-types "Basic-variable-types") 
 
 **Q: When never type can be useful?**
 
@@ -785,16 +785,16 @@ A: See [Difference between types and interfaces](https://github.com/delprzemo/ty
 
 A: ***keyof*** keyword is indicating all keys for specifed object, for example:
 
-**Q: What is tsconfig.json file?**
-
-A: File specifies the root files and the compiler options required to compile the project.
-
 ```ts
 type testType = keyof {id: "test", age: 2} ;
 ```
 testType = "id" | "age"
 
 See [Index types](https://github.com/delprzemo/typescript-cheatsheet#index-types "index-types") 
+
+**Q: What is tsconfig.json file?**
+
+A: File specifies the root files and the compiler options required to compile the project.
 
 
 **Q: What is computed enum value?**
