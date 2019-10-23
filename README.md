@@ -5,6 +5,13 @@ Cheatsheet was created by https://foreach.pl trainers for their students.
 
 Please note that some functionalities are part of ES201x but they are frequently used in TypeScript as well.
 
+# Table of Contents
+
+<!--ts-->
+   * [Types, variables and functions](#Types,-variables-and-functions)
+      * [Basic variable types](#Basic-variable-types)
+<!--te-->
+
 Types, variables and functions
 =================
 
