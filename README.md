@@ -810,9 +810,13 @@ A: They are usually module template file where we can keep typings for JS code.
 A: 
 
 Exclude<T, U> – Exclude from T those types that are assignable to U.
+
 Extract<T, U> – Extract from T those types that are assignable to U.
+
 NonNullable<T> – Exclude null and undefined from T.
+	
 ReturnType<T> – Obtain the return type of a function type.
+	
 InstanceType<T> – Obtain the instance type of a constructor function type.
 
 See [TypeScript 2.8](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html)
