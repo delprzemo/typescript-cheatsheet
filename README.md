@@ -473,7 +473,7 @@ let myVariable: MyType<string> = {parameter: "Test"}
 let myVariable: MyType<string> = {parameter: 2}
 ```
 
-## Difference between Types na Interfaces
+## Difference between Types and Interfaces
 
 **Types**
 
@@ -779,7 +779,7 @@ class ChildObject extends IMyObject
 
 **Q: What is a difference between types and interfaces?**
 
-A: See [Difference between types and nterfaces](https://github.com/delprzemo/typescript-cheatsheet#difference-between-types-na-interfaces "difference-between-types-na-interfaces") 
+A: See [Difference between types and interfaces](https://github.com/delprzemo/typescript-cheatsheet#difference-between-types-and-interfaces "difference-between-types-and-interfaces") 
 
 **Q: What is keyof?**
 
