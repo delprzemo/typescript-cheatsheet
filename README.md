@@ -37,6 +37,7 @@ Please note that some functionalities are part of ES201x but they are frequently
       * [Ambient modules](#Ambient-modules)
    * [Decorators](#Decorators)
    * [Generators](#Generators)
+   * [Interview questions](#Interview-questions)
 <!--te-->
 
 Types, variables and functions
@@ -720,7 +721,7 @@ value = gen.next().value // result 3
 
 
 
-Types, variables and functions
+Interview questions
 =================
 
 **Q: What is Tuple type?**
@@ -784,6 +785,10 @@ A: See [Difference between types and nterfaces](https://github.com/delprzemo/typ
 
 A: ***keyof*** keyword is indicating all keys for specifed object, for example:
 
+**Q: What is tsconfig.json file?**
+
+A: File specifies the root files and the compiler options required to compile the project.
+
 ```ts
 type testType = keyof {id: "test", age: 2} ;
 ```
@@ -795,6 +800,10 @@ See [Index types](https://github.com/delprzemo/typescript-cheatsheet#index-types
 **Q: What is computed enum value?**
 
 A: Computed value will be assigned during compilation. See [Enum computed value](https://github.com/delprzemo/typescript-cheatsheet#constant-and-computed-enum-members "constant-and-computed-enum-members") 
+
+**Q: What files with extension '.d.ts' stand for?**
+
+A: They are usually module template file where we can keep typings for JS code. 
 
 **Q: List few predefined conditional types in TypeScript**
 
@@ -821,12 +830,12 @@ interface MyInterface {
 let box: MyInterface 
 ```
 
-A: ```{name: ‚Test’, age: 36}; ```
+A: ```{name: string, age: number}; ```
 
 **Q: What is 'unknown' type in TypeScript?**
 A: Unknown is used to describe the least-capable type in TypeScript.  It doesn’t allow oprations typical for particular type
 
-``ts
+```ts
 function f10(x: unknown) {
 	x == 5;
 	x = "5";
@@ -835,7 +844,17 @@ function f10(x: unknown) {
 	x > 0  // not allowed
 	x.Test() // not allowed
 }
-``
+```
+
+**Q: Can typescript be used without JavaScript?**
+
+A: No, TypeScript is compiled to JavaScript, so it can't be used without it
+
+**Q: What is DefinitelyTyped repository?**
+
+A: It's GitHub repository with already written types for most popular JS libraries. They can be installed by npm with @types prefix, for example npm install @types/node
+
+
 
 
 
