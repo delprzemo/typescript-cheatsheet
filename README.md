@@ -75,7 +75,7 @@ let both = [0, ...first, ...second, 5];
 }
 ```
 
-both variable is equal to [1, 2, 3, 4].
+both variable is equal to [0, 1, 2, 3, 4, 5].
 
 Same for objects:
 ```ts
