@@ -234,11 +234,11 @@ A class or struct that implements the interface must implement the members of th
 
 **Interface for object**
 ```ts
-interface IObject {
+interface MyObject {
      label: string 
 }
 
-function MyFunction(obj: IObject) 
+function MyFunction(obj: MyObject) 
 ```
 
 obj parameter has to contain label property
@@ -264,7 +264,7 @@ obj parameter has to contain label property
 Index signature can be used to allow object/class contain multiple different properties with same type, for example wew have such a interface:
 
 ```ts
-interface IMyObject {
+interface MyObject {
 	[propName: string]: string
 }
 ```
@@ -272,7 +272,7 @@ and MyObject that is implementing it.
 
 Sample correct implementation of IMyObject:
 ```ts
-let MyObject: IMyObject  = {
+let MyObject: MyObject  = {
 	fistName: 'test',
 	lastName: 'test'
 }
@@ -280,7 +280,7 @@ let MyObject: IMyObject  = {
 Sample incorrect implementation of IMyObject:
 
 ```ts
-let MyObject: IMyObject  = {
+let MyObject: MyObject  = {
 	fistName: 'test',
 	age: 2
 }
@@ -330,11 +330,11 @@ function mySubStr<T extends string>(arg: T): string {
 arg has to object that is equal or extending string, for example string or:
 
 ```ts
-interface IExtendedString extends String{
+interface ExtendedString extends String{
 	newStringFunction(): number
 }
 
-mySubStr(arg: IExtendedString);
+mySubStr(arg: ExtendedString);
 ```
 
 Enums
@@ -498,13 +498,13 @@ type NonNullable<T> = T extends null | undefined ? never : T;
 **Interfaces**
 You can use interface for OOP and use 'implements' to define object/class skeleton
 ```ts
-interface IUser {
+interface UserBase {
     user: string;
     password: string;
     login: (user: string, password: string) => boolean;
 }
 
-class User implements IUser {
+class User implements UserBase {
     user = "user1"
     password = "password1"
 
@@ -516,11 +516,11 @@ class User implements IUser {
 You can extend interfaces with other interfaces
 
 ```ts
-interface IMyObject {
+interface MyObject {
 	label: string,
 }
 
-interface IMyObjectWithSize extends IMyObject{
+interface MyObjectWithSize extends MyObject{
 	size?: number
 }
 ```
@@ -618,7 +618,7 @@ data.ts file
 export class DataClass {
     ...
 }
-export interface IOperations {
+export interface Operations {
 ...
 }
 ```
@@ -671,7 +671,7 @@ import * as URL from „path"
 Some functions in JS are global and we may have not type for them. We can use 'declare' keyword here
 
 ```ts
-declare const System: IOurSystemObject;
+declare const System: OurSystemObject;
 ```
 
 Decorators
