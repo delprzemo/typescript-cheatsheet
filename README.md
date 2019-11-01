@@ -109,7 +109,7 @@ rest is equal to [2, 3]
 This is ES functionality 
 
 ```ts
-var numArray: Array<number> = [1, 2, 3];
+var numArray: Array<number> = [1, 2, 3]; // number[] can be instead Array<number> 
 var numArray2: Array<number> = [4,5];
 var stringArray: Array<number> = ["a", "b", "c"];
 
@@ -122,14 +122,14 @@ var objectArray: Array<User> = [
 
 | Function  | Result | Notes | 
 | ------------- | ------------- | ------------- | 
-| concat | numArray.concat(numArray2) -> [1,2,3,4,5] | Push values from one array to another |
+| concat | numArray.concat(numArray2) -> [1,2,3,4,5] | Push values from one array to another and return it as a new array |
 | every | objectArray.every(x=> x.age > 20) -> true | Check if all items are passing condition |
 | some | objectArray.some(x=> x.age > 30) -> true | Check if any item is passing condition |
 | filter | objectArray.filter(x=> x.age >= 35)) -> [{name: "Iva", age: 39}] | Get only items which are passing condition |
 | foEach | numArray.forEach(x=> console.log(x)) | Perform some logic for each array item |
 | join | stringArray.join(",") -> "a,b,c" | Merge text items into one value (add ',' between) |
 | indexOf | stringArray.indexOf("b") -> 1 | Return index(position) array item |
-| map | stringArray.map(x => x + "1") -> ["a1", "b1", "c1"] | Do something with each array item |
+| map | stringArray.map(x => x + "1") -> ["a1", "b1", "c1"] | Create new array/object applying some logic for each element |
 | push | stringArray.push("d") -> ["a", "b", "c", "d"] | Add element to the end of the array  |
 | unshift | stringArray.unshift("d") -> ["d", "a", "b", "c"] | Add element to the begin of the array  |
 | reduce | numArray.reduce((x, y) => x + y) -> 16 | Merge array into one value performing some logic on a way |
