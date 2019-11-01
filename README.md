@@ -43,7 +43,7 @@ Please note that some functionalities are part of ES201x but they are frequently
 Types, variables and functions
 =================
 
-Command line inferface for Angular - set of commands that will help us during development.
+Command-line interface for Angular - set of commands that will help us during development.
 
 ## Basic variable types
 
@@ -167,8 +167,8 @@ var greeter = new Greeter('friend');
 
 ```
 Notes:
-1. Only one constructor inside class
-2. constructor(**this** message: string) will automatically create message property and assign to it value from message property
+1. Only one constructor inside a class
+2. constructor(**this** message: string) will automatically create message property and assign to its value from message property
 3. Instead of private - public or protected can be used
 
 ## Inheritance
@@ -214,7 +214,7 @@ abstract class MyAbstractObject {
 }
 ```
 
-getValue function must be implemented in derived classes. Derived class must also call super() in constructor, example:
+getValue function must be implemented in derived classes. A derived class must also call super() in a constructor, example:
 
 ```ts
 abstract class MyAbstractObject extends Department {
@@ -261,7 +261,7 @@ class MadeFromString has to contain 'name' property
 obj parameter has to contain label property
 
 ## Index signature
-Index signature can be used to allow object/class contain multiple different properties with same type, for example wew have such a interface:
+Index signature can be used to allow object/class contain multiple different properties with the same type, for example, we have such an interface:
 
 ```ts
 interface MyObject {
@@ -281,11 +281,11 @@ Sample incorrect implementation of IMyObject:
 
 ```ts
 let MyObject: MyObject  = {
-	fistName: 'test',
+	firstName: 'test',
 	age: 2
 }
 ```
-Because age is number and our index signature indicate that our properties should have string type
+Because age is number and our index signature indicate that our properties should have a string type
 
 
 Generics
@@ -317,7 +317,7 @@ function doSth<T,Y> (value: T, category: Y) {}
 ```
 
 ## Extending generics
-Generic classes can be extended - it can be implemention of some inferface/object
+Generic classes can be extended - it can be the implementation of some interface/object
 
 Example:
 
@@ -327,7 +327,7 @@ function mySubStr<T extends string>(arg: T): string {
 }
 ```
 
-arg has to object that is equal or extending string, for example string or:
+arg has to object that is equal or extending string, for example, string or:
 
 ```ts
 interface ExtendedString extends String{
@@ -362,7 +362,7 @@ function move(direction: Direction): void {
 ```
 
 ## Constant and computed enum members
-Some enum members have pre-set value and some members are computed during complation
+Some enum members have pre-set value and some members are computed during compilation
 
 ```ts
 enum FileAccess {
@@ -436,7 +436,7 @@ value = 2
 ```
 
 ## Type guards
-Type guard can be used to tell TypeScript what type is any value in specific block of code.
+Type guard can be used to tell TypeScript what type is any value in a specific block of code.
 
 Sample Type Guard implementation:
 
@@ -477,7 +477,7 @@ let myVariable: MyType<string> = {parameter: 2}
 
 **Types**
 
-Create a tree structure for an object. You can't do the same with interface because of lack of intersection (&)
+Create a tree structure for an object. You can't do the same with the interface because of lack of intersection (&)
 
 ```ts
 type Tree<T> = T & { parent: Tree<T> };
@@ -530,14 +530,14 @@ Generic types can be different depending on some condition
 ```ts
 type MyStringType<T> = T extends string ? string : Text;
 ```
-if T extends string (contains all string properties and functions) then it will be string type. Otherwise it will be our custom Text type. 
+if T extends string (contains all string properties and functions) then it will be a string type. Otherwise, it will be our custom Text type. 
 
-other example:
+another example:
 
 ```ts
 type NonNullable<T> = T extends null | undefined ? never : T;
 ```
-NonNullable type will check if value isn't equal to null or undefined (it should never been equal to null or undefined)
+NonNullable type will check if a avalue isn't equal to null or undefined (it should never be equal to null or undefined)
 
 ## Index types
 ***keyof*** keyword is indicating all keys for specifed object, for example:
