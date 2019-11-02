@@ -109,7 +109,7 @@ rest is equal to [2, 3]
 This is ES functionality 
 
 ```ts
-var numArray: Array<number> = [1, 2, 3]; // number[] can be instead Array<number> 
+var numArray: Array<number> = [1, 2, 3]; // number[] can be used instead of Array<number> 
 var numArray2: Array<number> = [4,5];
 var stringArray: Array<number> = ["a", "b", "c"];
 
