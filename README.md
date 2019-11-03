@@ -317,7 +317,7 @@ function doSth<T,Y> (value: T, category: Y) {}
 ```
 
 ## Extending generics
-Generic classes can be extended - it can be the implementation of some interface/object
+Generic classes can be extended - it can be the implementation of some interface/object. Extending allow your object to inherit the features of another object type, so can be used for instance when you expect that object will contain some of properties or functions that will be used further. 
 
 Example:
 
@@ -335,6 +335,22 @@ interface ExtendedString extends String{
 }
 
 mySubStr(arg: ExtendedString);
+```
+
+another example - let's assume that we need to use length property from our object, so we would like to be sure that this property will exist in object. Let's create ILengthwise interface:
+
+```ts
+interface ILengthwise {
+   length: number
+}
+```
+
+and now we can use it to ensure that our generic will contain length property:
+
+```ts
+function doSthWithLength<T extends ILengthwise>(arg: T): number {
+	return arg.length;  // we can be sure that length property exists here
+}
 ```
 
 Enums
