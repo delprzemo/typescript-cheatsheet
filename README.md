@@ -5,6 +5,13 @@ Cheatsheet was created by https://foreach.pl trainers for their students.
 
 Please note that some functionalities are part of ES201x but they are frequently used in TypeScript as well.
 
+**Check also other Cheatsheets:**
+
+[Angular](https://github.com/delprzemo/angular-cheatsheet)
+
+[ReactJS](https://github.com/delprzemo/react-cheatsheet)
+
+
 # Table of Contents
 
 <!--ts-->
