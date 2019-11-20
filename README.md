@@ -133,7 +133,7 @@ var objectArray: Array<User> = [
 | every | objectArray.every(x=> x.age > 20) -> true | Check if all items are passing condition |
 | some | objectArray.some(x=> x.age > 30) -> true | Check if any item is passing condition |
 | filter | objectArray.filter(x=> x.age >= 35)) -> [{name: "Iva", age: 39}] | Get only items which are passing condition |
-| foEach | numArray.forEach(x=> console.log(x)) | Perform some logic for each array item |
+| forEach | numArray.forEach(x=> console.log(x)) | Perform some logic for each array item |
 | join | stringArray.join(",") -> "a,b,c" | Merge text items into one value (add ',' between) |
 | indexOf | stringArray.indexOf("b") -> 1 | Return index(position) array item |
 | map | stringArray.map(x => x + "1") -> ["a1", "b1", "c1"] | Create new array/object applying some logic for each element |
