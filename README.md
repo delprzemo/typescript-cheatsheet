@@ -861,7 +861,7 @@ A: ```{name: string, age: number}; ```
 
 **Q: What is 'unknown' type in TypeScript?**
 
-A: Unknown is used to describe the least-capable type in TypeScript.  It doesn’t allow oprations typical for particular type
+A: Unknown is used to describe the least-capable type in TypeScript.  It doesn't allow typical operations for a particular type
 
 ```ts
 function f10(x: unknown) {
