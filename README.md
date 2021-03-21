@@ -85,34 +85,35 @@ let both = [0, ...first, ...second, 5];
 both variable is equal to [0, 1, 2, 3, 4, 5].
 
 Same for objects:
+
 ```ts
 let first = { id: 2 };
 let second = { name: "test", ...first };
-}
 ```
 Second is equal to {name: "test", id: 2 }
 
 **Destructuring**
 
 Reversed spread - we can split one object into multiple
+
 ```ts
 let input = [1, 2];
 let [first, second] = input;
-}
 ```
 first is equal to 1 and second is equal to 2
 
 We can also use "..." operator
+
 ```ts
 let input = [1, 2, 3];
 let [first, ...rest] = input;
-}
 ```
 first is equal to 1
 
 rest is equal to [2, 3]
  
 ## Array functions
+
 This is ES functionality 
 
 ```ts
@@ -143,8 +144,8 @@ var objectArray: Array<User> = [
 | shift | numArray.shift() -> [2, 3] | Removes the first element from an array and returns it.|
 | sort | ["b", "c", "a"].sort((x,y) => x > y) -> ["a", "b", "c"] | Sort array by some logic |
 
-
 ## Functions
+
 This is ES functionality 
 
 | Type  | Example |
@@ -158,6 +159,7 @@ Classes
 =================
 
 Sample class:
+
 ```ts
 class NewGreeter {
    private greeting: string; 
@@ -171,14 +173,16 @@ class NewGreeter {
 }
 
 var greeter = new Greeter('friend');
-
 ```
+
 Notes:
+
 1. Only one constructor inside a class
 2. constructor(**this** message: string) will automatically create message property and assign to its value from message property
 3. Instead of private - public or protected can be used
 
 ## Inheritance
+
 ```ts
 class MyObject {
    protected value = 0;
@@ -193,13 +197,11 @@ class ChildObject extends MyObject {
     return this.value;
    }
  }
-
 ```
 
 ## Accessors
 
 TypeScript supports getters/setters as a way of intercepting accesses to a member of an object. You can add logic while the property is changing value or it is read by something
-
 
 ```ts
 private _value = 0;
@@ -212,6 +214,7 @@ set value(newValue: number): void {
 ```
 
 ## Abstract class
+
 Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members. 
 
 ```ts
@@ -221,7 +224,7 @@ abstract class MyAbstractObject {
 }
 ```
 
-getValue function must be implemented in derived classes. A derived class must also call super() in a constructor, example:
+`getValue` function must be implemented in derived classes. A derived class must also call super() in a constructor, example:
 
 ```ts
 abstract class MyAbstractObject extends Department {
@@ -240,6 +243,7 @@ Interfaces
 A class or struct that implements the interface must implement the members of the interface that are specified in the interface definition. The interface is the only skeleton for our classes implementing them
 
 **Interface for object**
+
 ```ts
 interface MyObject {
      label: string 
@@ -248,9 +252,10 @@ interface MyObject {
 function MyFunction(obj: MyObject) 
 ```
 
-obj parameter has to contain label property
+`obj` parameter has to contain label property
 
 **Interface for class**
+
 ```ts
 interface ComesFromString {
     name: string;
@@ -263,11 +268,12 @@ class MadeFromString implements ComesFromString {
 }
 ```
 
-class MadeFromString has to contain 'name' property
+class `MadeFromString` has to contain 'name' property
 
-obj parameter has to contain label property
+`obj` parameter has to contain label property
 
 ## Index signature
+
 Index signature can be used to allow object/class contain multiple different properties with the same type, for example, we have such an interface:
 
 ```ts
@@ -275,16 +281,18 @@ interface MyObject {
 	[propName: string]: string
 }
 ```
-and MyObject that is implementing it. 
+and `MyObject` that is implementing it. 
 
-Sample correct implementation of IMyObject:
+Sample correct implementation of `MyObject`:
+
 ```ts
 let MyObject: MyObject  = {
 	fistName: 'test',
 	lastName: 'test'
 }
 ```
-Sample incorrect implementation of IMyObject:
+
+Sample incorrect implementation of `MyObject`:
 
 ```ts
 let MyObject: MyObject  = {
@@ -292,6 +300,7 @@ let MyObject: MyObject  = {
 	age: 2
 }
 ```
+
 Because age is number and our index signature indicate that our properties should have a string type
 
 
@@ -300,6 +309,7 @@ Generics
 Sometimes same function/class/object can be used with different types and we don't want to declare it to one specific type. We can use generic type then
 
 Example:
+
 ```ts
 function changeUndefinedToNull<T>(value: T): T {
 	return (typeof value !== "undefined") ? value : null;
@@ -319,11 +329,13 @@ const result = changeUndefinedToNull<Object>({name: "Test"});
 ```
 
 More than just one generic type can be used:
+
 ```ts
 function doSth<T,Y> (value: T, category: Y) {}
 ```
 
 ## Extending generics
+
 Generic classes can be extended - it can be the implementation of some interface/object. Extending allow your object to inherit the features of another object type, so can be used for instance when you expect that object will contain some of properties or functions that will be used further. 
 
 Example:
@@ -344,7 +356,7 @@ interface ExtendedString extends String{
 mySubStr(arg: ExtendedString);
 ```
 
-another example - let's assume that we need to use length property from our object, so we would like to be sure that this property will exist in object. Let's create ILengthwise interface:
+another example - let's assume that we need to use length property from our object, so we would like to be sure that this property will exist in object. Let's create `ILengthwise` interface:
 
 ```ts
 interface ILengthwise {
@@ -362,12 +374,14 @@ function doSthWithLength<T extends ILengthwise>(arg: T): number {
 
 Enums
 =================
+
 Enums allow us to define a set of named constants and then used them like a dictionary.
 
 Sample enum:
+
 ```ts
 enum Direction {
-	Up ,
+	Up,
 	Down = 1,  // custom values can be assigned to enums
 	Left,
 	Right,
@@ -385,6 +399,7 @@ function move(direction: Direction): void {
 ```
 
 ## Constant and computed enum members
+
 Some enum members have pre-set value and some members are computed during compilation
 
 ```ts
@@ -409,6 +424,7 @@ enum MyEnum {
 }
 const member = MyEnum[0];
 ```
+
 member variable is equal to "A"
 
 
@@ -418,20 +434,24 @@ Advanced types
 ## Types intersection and union
 
 **Intersection**
+
 ```ts
 interface Type1 {name: string;}
 interface Type2 {age: number}
 
 let myObject: Type1 & Type2
 ```
-Type1 & Type2 means that there will be object containing properties both from  Type1 & Type2
+
+`Type1 & Type2` means that there will be object containing properties both from `Type1 & Type2`
  
-Sample correct myObject value:
+Sample correct `myObject` value:
+
 ```ts
 myObject = {name: "test", age: 33}
 ```
 
-Sample incorrect myObject values:
+Sample incorrect `myObject` values:
+
 ```ts
 myObject = {name: "test"}
 ```
@@ -440,12 +460,15 @@ myObject = {name: "test", age: "test"}
 ```
 
 **Union**
+
 ```ts
 const value: string | boolean 
 ```
-Value can be string OR boolean.
+
+Value can be `string` OR `boolean`.
 
 It is correct:
+
 ```ts
 value = "Test";
 ```
@@ -454,11 +477,13 @@ value = true
 ```
 
 and that is incorrect:
+
 ```ts
 value = 2
 ```
 
 ## Type guards
+
 Type guard can be used to tell TypeScript what type is any value in a specific block of code.
 
 Sample Type Guard implementation:
@@ -483,6 +508,7 @@ function doSth<T>(value: T) {
 thanks to 'x is number' typescript know in which scope we have access to toPrecision 
 
 ## Type aliases
+
 Own custom types can be declared, for example
 
 ```ts
@@ -519,7 +545,9 @@ type NonNullable<T> = T extends null | undefined ? never : T;
 ```
 
 **Interfaces**
-You can use interface for OOP and use 'implements' to define object/class skeleton
+
+You can use interface for OOP and use `implements` to define object/class skeleton
+
 ```ts
 interface UserBase {
     user: string;
@@ -536,6 +564,7 @@ class User implements UserBase {
     }
 }
 ```
+
 You can extend interfaces with other interfaces
 
 ```ts
@@ -543,33 +572,41 @@ interface MyObject {
 	label: string,
 }
 
-interface MyObjectWithSize extends MyObject{
+interface MyObjectWithSize extends MyObject {
 	size?: number
 }
 ```
 
 ## Conditional types
+
 Generic types can be different depending on some condition
+
 ```ts
 type MyStringType<T> = T extends string ? string : Text;
 ```
-if T extends string (contains all string properties and functions) then it will be a string type. Otherwise, it will be our custom Text type. 
+
+if `T` extends string (contains all string properties and functions) then it will be a string type. Otherwise, it will be our custom Text type. 
 
 another example:
 
 ```ts
 type NonNullable<T> = T extends null | undefined ? never : T;
 ```
+
 NonNullable type will check if a avalue isn't equal to null or undefined (it should never be equal to null or undefined)
 
 ## Index types
+
 ***keyof*** keyword is indicating all keys for specifed object, for example:
+
 ```ts
-type testType = keyof {id: "test", age: 2} ;
+type testType = keyof {id: "test", age: 2};
 ```
+
 only "id" or "age" values can be assigned to variable with 'testType' type
 
 Example 2:
+
 ```ts
 interface IMyInterface {
     id: number;
@@ -579,35 +616,39 @@ interface IMyInterface {
 type Keys = {id: 1, name: "T" }[keyof IMyInterface];
 ```
 
-using [keyof ...] instead of "keyof" before object means that we are revesing keyof behavior and now only 1 and "T" can be assigned to value with Keys type (values, not property keys)
+using `[keyof ...]` instead of "keyof" before object means that we are revesing keyof behavior and now only 1 and "T" can be assigned to value with Keys type (values, not property keys)
 
 Example 3:
+
 ```ts
 type Key<T> = { [K in keyof T]: K }[keyof T];
 ```
-This will point to all keys in the T object (just like keyof T).
+
+This will point to all keys in the T object (just like `keyof T`).
 But this construction can be used to for example check type of keys:
 
 ```ts
 type FunctionPropertyNames<T> = { [K in keyof T]: T[K] extends Function ? K : never }[keyof T];
 ```
+
 This type will require values equal to keys of T object, but only these ones which are functions
 
-
 ## Infer
+
 "Within the extends clause of a conditional type, it is now possible to have infer declarations that introduce a type variable to be inferred. Such inferred type variables may be referenced in the true branch of the conditional type. It is possible to have multiple infer locations for the same type variable."
 
 Example:
 
 ```ts
 type MyUnionTypesBase<T> = T extends Array<infer U> ? U : never;
-let myValue : MyUnionTypesBase<[number, string, boolean]>;
+let myValue: MyUnionTypesBase<[number, string, boolean]>;
 ```
 
 My value can be type number | string | boolean (number or string or boolean)
 
 Symbols
 =================
+
 Instead of using normal string keys in object it can be used predefined and assigned to variable Symbol
 example:
 
@@ -622,66 +663,72 @@ class SampleClass {
 ```
 
 **Symbols are unique**
+
 ```ts
 let sym2 = Symbol("key");
 let sym3 = Symbol("key");
 ```
 
-sym2 is not equal to sym3 (sym2 != sym3)
-
+`sym2` is not equal to `sym3` (`sym2` != `sym3`)
 
 Modules
 =================
+
 Import and export mechanism (between files and objects)
 
 Example:
 
-data.ts file
+`data.ts` file
+
 ```ts
 export class DataClass {
     ...
 }
 export interface Operations {
-...
+    ...
 }
 ```
-Import
-other file 
+
+Import other file 
+
 ```ts
 import {DataClass as ImportedDataClass} from './data.ts'
 ```
 
 Import all:
+
 ```ts
 import * from './data.ts'
 ```
 
 ## Namespaces
+
 Encapsulated scope of classes, objects, functions, interfaces and others. 
 
 Example:
+
 ```ts
 namespace UserArea {
 	export interface IUser {}
 	export class User {}
-		class Person {
-	}
+	class Person {}
 }
 let user = UserArea.User;
 ```
 
 ## Ambient modules
+
 Encapsulated scope of classes, objects, functions, interfaces, and others - that is available to export/import.
 "We call declarations that don’t define an implementation “ambient”. Typically, these are defined in .d.ts files. "
 
 Example
+
 ```ts
 declare module "path" {
 	export function normalize(p: string): string;
 	export function join(...paths: any[]): string;
 	export var sep: string;
 }
-
 ```
 
 and then we can import it
@@ -691,6 +738,7 @@ import * as URL from „path"
 ```
 
 ## replace global function
+
 Some functions in JS are global and we may have not type for them. We can use 'declare' keyword here
 
 ```ts
@@ -699,14 +747,15 @@ declare const System: OurSystemObject;
 
 Decorators
 =================
+
 "Decorators provide a way to add both annotations and a meta-programming syntax for class declarations and members."
 
 ```ts
- function customMethodDecorator(value: string) {
+function customMethodDecorator(value: string) {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {  
 	descriptor.value = () => {
 	    return "Hello, " + value;
-	}
+	};
     };
 }
 ```
@@ -724,9 +773,11 @@ greet() will return "Hello, here is hacker"
 
 Generators
 =================
+
 Loops can be executed "step by step"
 
 Example:
+
 ```ts
 function* idMaker(){
 	let index = 0;
@@ -741,8 +792,6 @@ value = gen.next().value // result 1
 value = gen.next().value // result 2
 value = gen.next().value // result 3
 ```
-
-
 
 Interview questions
 =================
@@ -790,14 +839,14 @@ A: Only one - there is no overloading for TypeScript class constructor
 
 A: Classes can extend other classes or objects, but when it comes to interfaces then they should be implemented
 
-For MyObject
+For `MyObject`
 ```ts
 class ChildObject extends MyObject 
 ```
 
-For IMyObject
+For `IMyObject`
 ```ts
-class ChildObject extends IMyObject 
+class ChildObject implements IMyObject 
 ```
 
 **Q: What is a difference between types and interfaces?**
@@ -811,6 +860,7 @@ A: ***keyof*** keyword is indicating all keys for specifed object, for example:
 ```ts
 type testType = keyof {id: "test", age: 2} ;
 ```
+
 testType = "id" | "age"
 
 See [Index types](https://github.com/delprzemo/typescript-cheatsheet#index-types "index-types") 
@@ -818,7 +868,6 @@ See [Index types](https://github.com/delprzemo/typescript-cheatsheet#index-types
 **Q: What is tsconfig.json file?**
 
 A: File specifies the root files and the compiler options required to compile the project.
-
 
 **Q: What is computed enum value?**
 
@@ -845,9 +894,10 @@ InstanceType<T> – Obtain the instance type of a constructor function type.
 See [TypeScript 2.8](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html)
 
 **Q: What will be type box here?**
+
 ```ts
 interface MyInterface {
-name: string;
+   name: string;
 }
 
 interface MyInterface {
@@ -881,8 +931,3 @@ A: No, TypeScript is compiled to JavaScript, so it can't be used without it
 **Q: What is DefinitelyTyped repository?**
 
 A: It's GitHub repository with already written types for most popular JS libraries. They can be installed by npm with @types prefix, for example npm install @types/node
-
-
-
-
-
