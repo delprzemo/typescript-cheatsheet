@@ -492,8 +492,8 @@ type MyType<T> = { parameter: T};
 Usage:
 
 ```ts
-let myVariable: MyType<string> = {parameter: "Test"}
-let myVariable: MyType<string> = {parameter: 2}
+let myString: MyType<string> = {parameter: "Test"}
+let myNumber: MyType<number> = {parameter: 2}
 ```
 
 ## Difference between Types and Interfaces
